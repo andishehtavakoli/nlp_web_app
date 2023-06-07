@@ -4,7 +4,7 @@ from loguru import logger
 
 
 def build_entity(text):
-    nlp = spacy.load('en_core_web_sm')
+    nlp = spacy.load('en_core_web_md')
     doc = nlp(text)
     logger.info(f'nlp object created! {text[:10]}...')
     ent_list = []

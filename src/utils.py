@@ -7,7 +7,7 @@ def save_transcript(file_path, text):
 
 
 
-def download_transcript(file_data):
+def download_link_transcript(file_data):
 
     # Create a download link
     b64_file = base64.b64encode(file_data.encode()).decode()
@@ -16,3 +16,6 @@ def download_transcript(file_data):
     # Display the download button
     st.markdown(download_link, unsafe_allow_html=True)
 
+def read_text(file_path):
+    with open(file_path, 'r', encoding='utf-8') as f:
+        f.read()
