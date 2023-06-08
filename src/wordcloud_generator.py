@@ -1,16 +1,12 @@
-import matplotlib.pyplot as plt
-from wordcloud import WordCloud
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
+import io
 from collections import Counter
 
 import matplotlib.pyplot as plt
-from wordcloud import WordCloud
+import streamlit as st
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-from collections import Counter
-import io
-import streamlit as st
+from wordcloud import WordCloud
+
 
 def create_wordcloud(text_data, max_words=100, input_stopwords=None, colormap='viridis', background_color='black', width=800, height=400):
     # Tokenize the text data

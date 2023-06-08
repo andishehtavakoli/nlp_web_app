@@ -4,6 +4,7 @@ from src.ner import build_entity
 from src.speech2transcript import audio_to_transcript
 from src.utils import save_transcript, download_link_transcript, read_text
 from src.wordcloud_generator import create_wordcloud
+from src.summarize_text import summarize_BART
 
 
 # Speech to Transcript
@@ -22,9 +23,6 @@ if uploaded_file is not None:
 
     except FileNotFoundError:
         transcript = ''
-
-
-
 
 
 # Name Entity
@@ -67,6 +65,8 @@ if 'Wordcloud' in options and gen_button == True:
 
 if 'Summarization' in options and gen_button == True:
     st.markdown('### Summarization')
+    summarize_text = summarize_BART(text)
+    st.write(summarize_text)
 
 if 'Topic' in options and gen_button == True:
     st.markdown('### Topic')
