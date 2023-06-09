@@ -6,12 +6,9 @@ from src.utils import save_transcript, download_link_transcript, read_text
 from src.wordcloud_generator import create_wordcloud
 from src.summarize_text import summarize_BART
 
-
-
-
-
 # Name Entity
-st.image("https://www.rosette.com/wp-content/uploads/2022/03/header-img-event-extraction@2x.png")
+st.image('https://walkerinfo.com/wp-content/uploads/2023/01/blog-textanalyticsguide.jpg')
+# st.image("https://www.rosette.com/wp-content/uploads/2022/03/header-img-event-extraction@2x.png")
 st.header('Find Named Entitiy')
 
 
@@ -40,6 +37,7 @@ if 'NER' in options and gen_button == True:
     st.markdown('### NER')
     st.dataframe(build_entity(text))
 
+# Word cloud
 if 'Wordcloud' in options and gen_button == True:
     st.markdown('### Wordcloud')
     # Create the word cloud figure
@@ -47,7 +45,7 @@ if 'Wordcloud' in options and gen_button == True:
 
     # Display the figure in Streamlit
     st.image(fig_buffer, use_column_width=True)
-
+# Summarization
 if 'Summarization' in options and gen_button == True:
     st.markdown('### Summarization')
     summarize_text = summarize_BART(text)
