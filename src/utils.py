@@ -1,5 +1,6 @@
 import streamlit as st
 import base64
+import json
 
 def save_transcript(file_path, text):
     with open(file_path, 'w') as f:
@@ -20,3 +21,6 @@ def read_text(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         f.read()
 
+def read_json(file_path):
+    with open(file_path, 'r') as f:
+        return json.load(f)
