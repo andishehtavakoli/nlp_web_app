@@ -20,7 +20,7 @@ if uploaded_file is not None:
             f.write(audio_data)
         st.success("Audio file saved successfully!")
         transcript = audio_to_transcript("src/data/file.m4a")
-        download_link_transcript(transcript)
+        download_link_transcript(transcript, format='text')
 
     except FileNotFoundError:
         transcript = ''

@@ -7,7 +7,9 @@ from nltk.tokenize import word_tokenize
 import string
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-from utils import read_json
+from src.utils import read_json
+from deep_translator import GoogleTranslator
+
 
 
 class Subtitle():
@@ -36,5 +38,14 @@ class Subtitle():
             if word in self.word_difficulty.keys():
 
                 if self.word_difficulty[word] > score:
-                    difficult_words.append(word)
+                    difficult_words.append((word, self.word_difficulty[word]))
         return set(difficult_words)
+
+
+    def get_difficult_words_farsi(self, score):
+
+        # Use any translator you like, in this example GoogleTranslator
+        translated_obj = GoogleTranslator(source='auto', target='fa')
+        transcript = self.get_difficult_words(score)
+        en_fa_transcript = [(text, translated_obj.translate(text), score) for text, score in transcript]
+        return en_fa_transcript
